@@ -8,6 +8,8 @@ import java.time.YearMonth
 import java.time.ZoneId
 import java.util.Locale
 
+import javax.inject.Inject
+
 /**
  * Reward Intelligence Engine.
  *
@@ -19,7 +21,7 @@ import java.util.Locale
  *
  * Rules: 12 (frugality), 13 (hidden costs), 15 (local-only), 16 (debt override)
  */
-class RewardIntelligenceUseCase {
+class RewardIntelligenceUseCase @Inject constructor() {
 
     data class MonthlyCardSummary(
         val cardName: String,
@@ -155,8 +157,6 @@ class RewardIntelligenceUseCase {
             val cap = rule.monthlyCap?.let { formatRupees(it) }
             val note = buildString {
                 if (rule.redemptionFee > 0) append("Redemption fee: ${formatRupees(rule.redemptionFee)}. ")
-                if (rule.minSpendForReward != null) append("Min spend: ${formatRupees(rule.minSpendForReward)}. ")
-                if (rule.forexMarkupPercent > 0) append("Forex: ${rule.forexMarkupPercent}%. ")
             }.takeIf { it.isNotBlank() }
 
             benefits.add(CardBenefit(
@@ -211,17 +211,17 @@ class RewardIntelligenceUseCase {
             // Find the best card for this category
             val bestCard = cards.maxByOrNull { card ->
                 val rule = card.rewardRules.find { it.category == category }
-                rule?.netSavingsPercent ?: card.defaultCashbackPercent
+                rule?.let { it.cashbackPercent + (it.pointsPerHundredRupees * it.pointValueInRupees) } ?: card.defaultCashbackPercent
             }
 
             if (bestCard != null && mostUsedCardId != null && bestCard.id != mostUsedCardId) {
                 val bestRate = bestCard.rewardRules
-                    .find { it.category == category }?.netSavingsPercent
+                    .find { it.category == category }?.let { it.cashbackPercent + (it.pointsPerHundredRupees * it.pointValueInRupees) }
                     ?: bestCard.defaultCashbackPercent
 
                 val currentCard = cards.find { it.id == mostUsedCardId }
                 val currentRate = currentCard?.rewardRules
-                    ?.find { it.category == category }?.netSavingsPercent
+                    ?.find { it.category == category }?.let { it.cashbackPercent + (it.pointsPerHundredRupees * it.pointValueInRupees) }
                     ?: (currentCard?.defaultCashbackPercent ?: 0.0)
 
                 val extraSavings = totalSpend * (bestRate - currentRate) / 100.0

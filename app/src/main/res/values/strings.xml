@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VoucherVault</string>
-    <string name="app_full_name">VoucherVault: Smart Cards &amp; Storage</string>
+    <!-- FIXME: Replace with your actual Web Client ID from Firebase Console -> Authentication -> Google Sign-In -->
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
 </resources>

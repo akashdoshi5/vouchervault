@@ -21,6 +21,8 @@ enum class CardIssuer(val displayName: String, val shortCode: String) {
     AU("AU Small Finance", "AU"),
     FEDERAL("Federal Bank", "FED"),
     BOB("Bank of Baroda", "BOB"),
+    HSBC("HSBC Bank", "HSBC"),
+    SC("Standard Chartered", "SC"),
     OTHER("Other", "OTHER")
 }
 

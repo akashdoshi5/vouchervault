@@ -9,6 +9,7 @@ sealed class Screen(val route: String) {
     data object Scan : Screen("scan")
     data object Concierge : Screen("concierge")
     data object Settings : Screen("settings")
+    data object Auth : Screen("auth")
 
     // MVP2 screens
     data object CreditCards : Screen("credit_cards")

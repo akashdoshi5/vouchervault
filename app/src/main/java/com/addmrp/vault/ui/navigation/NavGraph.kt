@@ -14,6 +14,7 @@ import com.addmrp.vault.ui.settings.SettingsScreen
 import com.addmrp.vault.ui.sharing.VaultSharingScreen
 import com.addmrp.vault.ui.swiper.OptimalSwiperScreen
 import com.addmrp.vault.ui.wallet.WalletScreen
+import com.addmrp.vault.ui.wallet.WalletViewModel
 
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -60,11 +61,26 @@ fun VaultNavGraph(
         }
     }
 
+    val startDest = if (com.google.firebase.auth.FirebaseAuth.getInstance().currentUser != null) {
+        Screen.Wallet.route
+    } else {
+        Screen.Auth.route
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         NavHost(
             navController = navController,
-            startDestination = Screen.Wallet.route
+            startDestination = startDest
         ) {
+            composable(Screen.Auth.route) {
+                com.addmrp.vault.ui.auth.AuthScreen(
+                    onLoginSuccess = {
+                        navController.navigate(Screen.Wallet.route) {
+                            popUpTo(Screen.Auth.route) { inclusive = true }
+                        }
+                    }
+                )
+            }
             composable(Screen.Wallet.route) {
                 WalletScreen(
                     onNavigateToScan = { navController.navigate(Screen.Scan.route) },

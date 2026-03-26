@@ -3,12 +3,15 @@ package com.addmrp.vault.ui.components
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalanceWallet
-import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.AccountBalanceWallet
 import androidx.compose.material.icons.filled.Stars
 import androidx.compose.material.icons.outlined.Stars
+import androidx.compose.material.icons.filled.QrCodeScanner
+import androidx.compose.material.icons.outlined.QrCodeScanner
+import androidx.compose.material.icons.outlined.Psychology
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -34,7 +37,7 @@ data class BottomNavItem(
 
 val bottomNavItems = listOf(
     BottomNavItem(Screen.Wallet, "Wallet", Icons.Filled.AccountBalanceWallet, Icons.Outlined.AccountBalanceWallet),
-    BottomNavItem(Screen.Scan, "Scan", Icons.Filled.CameraAlt, Icons.Outlined.CameraAlt),
+    BottomNavItem(Screen.Scan, "Scan", Icons.Filled.QrCodeScanner, Icons.Outlined.QrCodeScanner),
     BottomNavItem(Screen.Rewards, "Rewards", Icons.Filled.Stars, Icons.Outlined.Stars),
     BottomNavItem(Screen.Concierge, "Concierge", Icons.Filled.Psychology, Icons.Outlined.Psychology),
     BottomNavItem(Screen.Settings, "Settings", Icons.Filled.Settings, Icons.Outlined.Settings),
