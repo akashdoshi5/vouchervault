@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VoucherVault</string>
-    <!-- FIXME: Replace with your actual Web Client ID from Firebase Console -> Authentication -> Google Sign-In -->
-    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    <string name="default_web_client_id">579428708009-jfrt60hh8ko4e98p2lrv4rieu8i0uiqf.apps.googleusercontent.com</string>
 </resources>
