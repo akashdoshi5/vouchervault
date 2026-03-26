@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "579428708009",
+    "project_id": "vouchervault-app-250326",
+    "storage_bucket": "vouchervault-app-250326.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579428708009:android:ffa06aef08df2bfc6743b8",
+        "android_client_info": {
+          "package_name": "com.addmrp.vault"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579428708009-kfs4koi1clke0fc9oiqhm9e30dd8tjop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.addmrp.vault",
+            "certificate_hash": "180c067f208866f23caf2d5d1a4a1cf12d60a167"
+          }
+        },
+        {
+          "client_id": "579428708009-jfrt60hh8ko4e98p2lrv4rieu8i0uiqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9lviCc1GgIg97Kpt2rnH265LSWLu6CbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579428708009-jfrt60hh8ko4e98p2lrv4rieu8i0uiqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
