@@ -5,8 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <!-- Notification Engine: Exact Alarms + Boot Reschedule -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
@@ -74,17 +72,6 @@
             tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <!-- SMS Transaction Listener (consent-gated) -->
-        <receiver
-            android:name=".data.sms.SmsListenerService"
-            android:exported="true"
-            android:permission="android.permission.BROADCAST_SMS"
-            tools:ignore="ExportedReceiver">
-            <intent-filter android:priority="999">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
