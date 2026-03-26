@@ -1,0 +1,12 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "vouchers",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "sharedWith", "arrayConfig": "CONTAINS" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
